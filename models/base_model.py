@@ -2,9 +2,9 @@
 """ Defines all common attributes/methods."""
 import models
 from uuid import uuid4
-from datetime import datetime
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
+from datetime import datetime
 
 Base = declarative_base()
 
@@ -19,13 +19,11 @@ class BaseModel:
     """
 
     id = Column(String(60), primary_key=True, nullable=False)
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
 
     def __init__(self, *args, **kwargs):
         """
-        Initialize a new BaseModel.
-
         Args:
             *args (any): Won't be used.
             **kwargs (dict): Key/Value pairsof the attributes.

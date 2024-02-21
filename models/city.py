@@ -15,6 +15,6 @@ class City(BaseModel, Base):
         places (sqlalchemy relationship): The User-Place relationship.
     """
     __tablename__ = "cities"
-    name = Column(String(128), nullable=False)
     state_id = Column(String(60), ForeignKey("states.id"), nullable=False)
     places = relationship("Place", backref="cities", cascade="delete")
+    name = Column(String(128), nullable=False)
